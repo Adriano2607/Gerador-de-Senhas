@@ -8,6 +8,7 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import javax.swing.JOptionPane;
+import javax.swing.JSlider;
 
 /**
  *
@@ -20,6 +21,7 @@ public class JFRPrincipal extends javax.swing.JFrame {
      */
     public JFRPrincipal() {
         initComponents();
+       
     }
 
     /**
@@ -35,66 +37,151 @@ public class JFRPrincipal extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         JTFSenhaGerada = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelTamanhoSenha = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
-        JCBcopiar = new javax.swing.JCheckBox();
-        jPanel2 = new javax.swing.JPanel();
+        JBcopirar = new javax.swing.JButton();
+        jSliderSenha = new javax.swing.JSlider();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         JRBNumeros = new javax.swing.JRadioButton();
         JRBLetras = new javax.swing.JRadioButton();
         JRBCompleto = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerador de Senha");
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        JTFSenhaGerada.setEditable(false);
+        JTFSenhaGerada.setBackground(new java.awt.Color(0, 0, 0));
+        JTFSenhaGerada.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        JTFSenhaGerada.setForeground(new java.awt.Color(255, 255, 255));
+        JTFSenhaGerada.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        JTFSenhaGerada.setText("Senha Gerada Aqui!!!");
+        JTFSenhaGerada.setBorder(new javax.swing.border.LineBorder(java.awt.SystemColor.textHighlight, 2, true));
+
+        jLabelTamanhoSenha.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabelTamanhoSenha.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTamanhoSenha.setText("Tamanho");
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Gerador de Senha");
+        jLabel1.setToolTipText("");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel1.setVerifyInputWhenFocusTarget(false);
+
+        JBcopirar.setBackground(new java.awt.Color(0, 0, 0));
+        JBcopirar.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        JBcopirar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/copy (3).png"))); // NOI18N
+        JBcopirar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        JBcopirar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBcopirarActionPerformed(evt);
+            }
+        });
+
+        jSliderSenha.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        jSliderSenha.setMaximum(30);
+        jSliderSenha.setMinimum(1);
+        jSliderSenha.setPaintLabels(true);
+        jSliderSenha.setToolTipText("");
+        jSliderSenha.setValue(25);
+        jSliderSenha.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jSliderSenha.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSliderSenhaStateChanged(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("25");
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/lock (1).png"))); // NOI18N
+        jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel4.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Completo");
+        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel5.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Letras");
+        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel3.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Numeros");
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        buttonGroup1.add(JRBNumeros);
+        JRBNumeros.setSelected(true);
+        JRBNumeros.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        JRBNumeros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JRBNumerosActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(JRBLetras);
+        JRBLetras.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        buttonGroup1.add(JRBCompleto);
+        JRBCompleto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        JRBCompleto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JRBCompletoActionPerformed(evt);
+            }
+        });
+
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/checked.png"))); // NOI18N
-        jButton1.setText("Gera");
+        jButton1.setText("Gerar");
+        jButton1.setAlignmentX(0.5F);
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        JTFSenhaGerada.setEditable(false);
-        JTFSenhaGerada.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
-        JTFSenhaGerada.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jLabel2.setText("Tamanho da Senha");
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        jLabel1.setText("Senha Gerada");
-
-        jComboBox1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14" }));
-        jComboBox1.setSelectedIndex(9);
-
-        jButton2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/multiply.png"))); // NOI18N
         jButton2.setText("Limpar");
+        jButton2.setAlignmentX(0.5F);
+        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jButton2.setBorderPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
-            }
-        });
-
-        JCBcopiar.setText("Copiar");
-        JCBcopiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JCBcopiarActionPerformed(evt);
             }
         });
 
@@ -103,191 +190,153 @@ public class JFRPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JTFSenhaGerada, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JCBcopiar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(3, 3, 3)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(3, 3, 3)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabelTamanhoSenha)
+                .addGap(6, 6, 6)
+                .addComponent(jSliderSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(112, 112, 112)
+                .addComponent(jLabel3)
+                .addGap(8, 8, 8)
+                .addComponent(JRBNumeros)
+                .addGap(6, 6, 6)
+                .addComponent(jLabel5)
+                .addGap(6, 6, 6)
+                .addComponent(JRBLetras)
+                .addGap(6, 6, 6)
+                .addComponent(jLabel4)
+                .addGap(6, 6, 6)
+                .addComponent(JRBCompleto))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(JTFSenhaGerada, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addComponent(JBcopirar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2});
-
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(JTFSenhaGerada, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JCBcopiar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(23, 23, 23))
-        );
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-
-        jLabel4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jLabel4.setText("Completo");
-
-        jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jLabel5.setText("Letras");
-
-        jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jLabel3.setText("Numeros");
-
-        buttonGroup1.add(JRBNumeros);
-
-        buttonGroup1.add(JRBLetras);
-
-        buttonGroup1.add(JRBCompleto);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(JRBNumeros)
-                    .addComponent(JRBLetras)
-                    .addComponent(JRBCompleto))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(JRBNumeros))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel7)
                 .addGap(6, 6, 6)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelTamanhoSenha)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jSliderSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(JRBNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(JRBLetras))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JRBLetras, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(JRBCompleto))
-                .addContainerGap(113, Short.MAX_VALUE))
+                    .addComponent(JRBCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JTFSenhaGerada, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBcopirar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jPanel1, jPanel2});
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void JRBCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRBCompletoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JRBCompletoActionPerformed
+
+    private void JRBNumerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRBNumerosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JRBNumerosActionPerformed
+
+    private void jSliderSenhaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderSenhaStateChanged
+        // TODO add your handling code here:
+        int valor = jSliderSenha.getValue();
+        jLabel2.setText(""+valor);
+    }//GEN-LAST:event_jSliderSenhaStateChanged
+
+    private void JBcopirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBcopirarActionPerformed
+        // TODO add your handling code here:
+        if ("".equals(JTFSenhaGerada.getText())) {
+            JOptionPane.showMessageDialog(null, "Tela Vazia", "Aviso", JOptionPane.WARNING_MESSAGE);
+
+        } else {
+
+            String texto = JTFSenhaGerada.getText();
+            // Copia o texto do JTextField para a área de transferência
+            java.awt.datatransfer.StringSelection stringSelection = new java.awt.datatransfer.StringSelection(texto);
+            java.awt.datatransfer.Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit().getSystemClipboard();
+            clipboard.setContents(stringSelection, null);
+            JOptionPane.showMessageDialog(null, "Senha Copiada", "Copiado", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_JBcopirarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        if ("".equals(JTFSenhaGerada.getText())) {
+            JOptionPane.showMessageDialog(null, "A tela ja foi limpa.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        } else {
+            JTFSenhaGerada.setText(null);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         int tam = Integer.parseInt((String) jComboBox1.getSelectedItem());
-        
-         if ( ! JRBNumeros.isSelected() &&  !JRBLetras.isSelected() && !JRBCompleto.isSelected() ){
+        int tam = jSliderSenha.getValue();
+
+        if (!JRBNumeros.isSelected() && !JRBLetras.isSelected() && !JRBCompleto.isSelected()) {
             JOptionPane.showMessageDialog(null, "Escolha alguma opcao!. ", "Nenhuma opcao selecionada", JOptionPane.ERROR_MESSAGE);
-         }
-         
-         
-       if(JRBNumeros.isSelected()){
-             JTFSenhaGerada.setText(filtro("0123456789",tam));      
-         }
-         
-         if(JRBLetras.isSelected()){
-             JTFSenhaGerada.setText(filtro("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",tam));      
-         }
-      
-        
-        
-         if(JRBCompleto.isSelected()){ 
-             JTFSenhaGerada.setText(filtro("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$",tam));
-         }
-        
-        
-         
-         
+        }
+
+        if (JRBNumeros.isSelected()) {
+            JTFSenhaGerada.setText(filtro("0123456789", tam));
+        }
+
+        if (JRBLetras.isSelected()) {
+            JTFSenhaGerada.setText(filtro("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", tam));
+        }
+
+        if (JRBCompleto.isSelected()) {
+            JTFSenhaGerada.setText(filtro("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$", tam));
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
-    private static String filtro(String a , int tamanho) {
-        String senha = " "; 
-                    for (int i = 1; i <= tamanho; i++) {
-                        int chara = (int)(Math.random() * a.length());
-                        senha += a.charAt(chara);
-                    }
+    
+    
+    
+    private static String filtro(String a, int tamanho) {
+        String senha = " ";
+        for (int i = 1; i <= tamanho; i++) {
+            int chara = (int) (Math.random() * a.length());
+            senha += a.charAt(chara);
+        }
         return senha;
     }
-    
-    
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      
-      
-        
-        if("".equals(JTFSenhaGerada.getText())){
-         JOptionPane.showMessageDialog(null, "A tela ja foi limpa.", "Aviso", JOptionPane.WARNING_MESSAGE);
-        }else{
-          JTFSenhaGerada.setText(null);
-        }
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void JCBcopiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBcopiarActionPerformed
-    
-        if(JCBcopiar.isSelected()){
-        StringSelection stringSelection = new StringSelection(JTFSenhaGerada.getText());
-    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-    clipboard.setContents(stringSelection, null);
-    JOptionPane.showMessageDialog(null, "Copiado", "Copiado", JOptionPane.WARNING_MESSAGE);
-        JCBcopiar.setSelected(false);
-
-        }
-        
-
-    }//GEN-LAST:event_JCBcopiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,7 +374,7 @@ public class JFRPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox JCBcopiar;
+    private javax.swing.JButton JBcopirar;
     private javax.swing.JRadioButton JRBCompleto;
     private javax.swing.JRadioButton JRBLetras;
     private javax.swing.JRadioButton JRBNumeros;
@@ -336,13 +385,16 @@ public class JFRPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabelTamanhoSenha;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JSlider jSliderSenha;
     // End of variables declaration//GEN-END:variables
 }
